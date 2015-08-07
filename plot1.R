@@ -5,6 +5,7 @@ if (!file.exists("household_power_consumption.txt")) {
     unzip("houhousehold_power_consumption.zip")
 }
 
+library(data.table)
 datahead <- fread("household_power_consumption.txt", na.strings="?", stringsAsFactor=TRUE, nrows=1) ## Read the colnames
 datas <- fread("household_power_consumption.txt", na.strings="?", stringsAsFactor=TRUE, skip=66000, nrows=5000)
 setnames(datas, colnames(datas), colnames(datahead))  ## Set the colnames
